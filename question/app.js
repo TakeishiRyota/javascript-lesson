@@ -5,7 +5,7 @@ console.log("私のニックネームは" + nickname + "です。年齢は" + ag
 
 //Q2
 let languages = ["JavaScript", "PHP", "Ruby", "Python", "Go"];
-console.log("私の好きな言語は" + languages[0] + "です。次は" + languages[3] + "を勉強してみたいです。");
+console.log(`私の好きな言語は${languages[0]}です。次は${languages[3]}を勉強してみたいです。`);
 
 //Q3
 let user = {
@@ -38,7 +38,12 @@ let playerList = [
 console.log(playerList[1].favorites[1]);
 
 //Q5
-const avg = (playerList[0].age + playerList[1].age + playerList[2].age) / playerList.length;
+let sum = 0;
+
+for (let i = 0; i < playerList.length; i++) {
+  sum += playerList[i].age;
+}
+const avg = sum / playerList.length;
 console.log(avg);
 
 
@@ -63,45 +68,28 @@ user.sayHello();
 
 // Q8
 let calc = {
-  x: 0,
-  y: 0,
-
-  add: function() {
-    return this.x + this.y;
+  add: function(x, y) {
+    return x + y;
   },
 
-    subtract: function() {
-    return this.x - this.y;
+  subtract: function(x, y) {
+    return x - y;
   },
 
-  multiply: function() {
-    return this.x * this.y;
+  multiply: function(x, y) {
+    return x * y;
   },
 
-  divide: function() {
-    return this.x / this.y;
-  }
-};
+  divide: function(x, y) {
+    return x / y;
+  },
 
-calc.x = 5;
-calc.y = 2;
+}
 
-console.log(calc.add());
-
-calc.x = 14;
-calc.y = 4;
-
-console.log(calc.subtract());
-
-calc.x = 7;
-calc.y = 7;
-
-console.log(calc.multiply());
-
-calc.x = 25;
-calc.y = 5;
-
-console.log(calc.divide());
+console.log(calc.add(5, 2)); 
+console.log(calc.subtract(14, 4));
+console.log(calc.multiply(7, 7));
+console.log(calc.divide(25, 5));
 
 // Q9
 function remainder(x, y) {
